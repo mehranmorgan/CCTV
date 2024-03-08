@@ -1,0 +1,137 @@
+﻿{% extends 'Layout.html' %}
+{% load static %}
+{% block content %}
+    <!-- Main Container -->
+    <div class="main-container col1-layout">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <article class="col-main">
+                        <div class="page-title">
+                            <h2>{{category.category}}</h2>
+                        </div>
+                        <div class="toolbar">
+                            <div class="sorter">
+                                <div class="view-mode"><span title="Grid" class="button button-active button-grid">&nbsp;</span><a
+                                        href="shop-list-sidebar.html" title="List" class="button-list">&nbsp;</a></div>
+                            </div>
+                            <div id="sort-by">
+                                <label class="left">Sort By: </label>
+                                <ul>
+                                    <li><a href="#">Position<span class="right-arrow"></span></a>
+                                        <ul>
+                                            <li><a href="#">Name</a></li>
+                                            <li><a href="#">Price</a></li>
+                                            <li><a href="#">Position</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <a class="button-asc left" href="#" title="Set Descending Direction"><span
+                                        class="top_arrow"></span></a></div>
+                            <div class="pager">
+                                <div id="limiter">
+                                    <label>View: </label>
+                                    <ul>
+                                        <li><a href="#">16<span class="right-arrow"></span></a>
+                                            <ul>
+                                                <li><a href="#">20</a></li>
+                                                <li><a href="#">30</a></li>
+                                                <li><a href="#">35</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-products">
+                            <ul class="products-grid">
+                                {% for product in products.object_list %}
+                                    <li class="item col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                        <div class="item-inner">
+                                            <div class="item-img">
+                                                <div class="item-img-info"><a class="product-image"
+                                                                              title="Product tilte is here"
+                                                                              href="product-detail.html">
+                                                    {% if product.image %}
+                                                    <img
+                                                        alt="Product tilte is here" src="{{ product.image.url }}">
+                                                    {% else %}
+                                                                                                            <img
+                                                        alt="Product tilte is here" src="{% static 'empty.png' %}">
+                                                    {% endif %}
+                                                </a>
+                                                    <div class="new-label new-top-left">new</div>
+                                                    <div class="sale-label sale-top-right">sale</div>
+                                                    <div class="mask-shop-white"></div>
+                                                    <div class="new-label new-top-left">new</div>
+                                                    <a class="quickview-btn"
+                                                       href="quick-view.html"><span>Quick View</span></a> <a
+                                                            href="wishlist.html">
+                                                        <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
+                                                    </a> <a href="compare.html">
+                                                        <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
+                                                    </a></div>
+                                            </div>
+                                            <div class="item-info">
+                                                <div class="info-inner">
+                                                    <div class="item-title"><a title="Product tilte is here"
+                                                                               href="{% url 'Home:product_detail' product.slug %}">{{ product.name }} </a>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="rating"><i class="fa fa-star"></i> <i
+                                                                class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                                class="fa fa-star-o"></i> <i class="fa fa-star-o"></i>
+                                                        </div>
+                                                        <div class="item-price">
+                                                            <div class="price-box"><span class="regular-price"> <span
+                                                                    class="price">${{ product.price }}</span></span>
+                                                                <p class="old-price"><span class="price-label">Regular Price:</span>
+                                                                    <span class="price"> $119.00 </span></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="actions">
+                                                            <div class="add_cart">
+                                                                <a href="{% url 'Home:shop_grid_slider' product.slug %}"><button class="button btn-cart" type="button" >cat</button></a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+
+                                <div class="toolbar bottom">
+                                    <div class="row">
+                                        <div class="col-sm-6 text-left">
+                                            {% if products.has_other_pages %}
+                                            <div class="pages">
+                                                    <ul class="pagination">
+                                                        {% if products.has_previous %}
+                                                            <li><a href="?page={{ products.previous_page_number }}">«</a></li>
+                                                        {% endif %}
+                                                            {% for i in products.paginator.page_range %}
+                                                                {% if products.number == i %}
+                                                                    <li class="active"><a href="?page={{ i }}">{{ i }}</a></li>
+                                                                    {% else %}
+                                                                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        {% if products.has_next %}
+                                                            <li><a href="?page={{ products.next_page_number }}">»</a></li>
+                                                        {% endif %}
+                                                    </ul>
+                                            </div>
+                                        {% endif %}
+                                        </div>
+                                        <div class="col-sm-6 text-right">Showing 1 to 15 of 25 (2 Pages)</div>
+                                    </div>
+                                </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Container End -->
+{% endblock content %}

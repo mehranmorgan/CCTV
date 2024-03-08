@@ -1,0 +1,25 @@
+{% extends 'Layout.html' %}
+{% load static %}
+{% block content %}
+                    <fieldset>
+                    <div class="registered-users"><strong>Phone Register</strong>
+                        <div class="content">
+                            <p></p>
+                            <form method="post">
+                                {% csrf_token %}
+                                <ul class="form-list">
+                                    {{ form.errors }}
+                                    <li>
+                                        {{ form.as_p }}
+                                    </li>
+                                </ul>
+                                <p class="required">* Required Fields</p>
+                                <div class="buttons-set">
+                                    <button  type="submit" class="button login"><span>Submit</span>
+                                    </button>
+                                </div>
+                        </div>
+                        </form>
+                    </div>
+                </fieldset>
+{% endblock content %}

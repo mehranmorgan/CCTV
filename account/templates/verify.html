@@ -1,0 +1,35 @@
+﻿{% extends 'Layout.html' %}
+{% load static %}
+{% block content %}
+
+    <section class="main-container col1-layout">
+        <div class="main container">
+            <div class="account-login">
+                <div class="page-title">
+                    <h2>Login Account</h2>
+                </div>
+                <fieldset>
+                    <div class="registered-users"><strong>Phone Register</strong>
+                        <div class="content">
+                            <p></p>
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="phone" value="{{ phone }}">
+                                <label >
+                                    <p>Varify Code:</p>
+                                    <input  type="text" name="code">
+                                </label>
+                                <button type="submit" class="button login">varify</button>
+                            </form>
+                        </div>
+                    </div>
+            </fieldset>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        </div>
+    </section>
+{% endblock content %}

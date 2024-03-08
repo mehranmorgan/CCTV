@@ -1,0 +1,55 @@
+﻿{% extends 'Layout.html' %}
+{% load static %}
+{% block content %}
+
+    <section class="main-container col1-layout">
+        <div class="main container">
+            <div class="account-login">
+                <div class="page-title">
+                    <h2>Login Account</h2>
+                </div>
+                <fieldset>
+                    <div class="registered-users"><strong>Registered Customers</strong>
+                        <div class="content">
+                            <p>If you have an account with us, please log in.</p>
+                            <form method="post">
+                                {% csrf_token %}
+                                <ul class="form-list">
+
+                                    <li>
+                                        {{ form.as_p }}
+                                    </li>
+                                </ul>
+                                <p class="required">* Required Fields</p>
+                                <div class="buttons-set">
+                                    <button id="send2" name="send" type="submit" class="button login"><span>Login</span>
+                                    </button>
+                                    <a class="forgot-word" href='{% url 'account:pri_register'%}'> Register</a>
+                                    <a class="forgot-word" href="forgot-password.html">Forgot Your Password?</a>
+                                </div>
+                        </div>
+                        </form>
+                    </div>
+                </fieldset>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </section>
+{% endblock content %}
+                                {% csrf_token %}
+                                {{ form.errors }}
+                                <ul class="form-list">
+                                    <li>
+                                        <label for="email">User Name <span class="required">*</span></label>
+
+                                        {{ form.username }}
+                                    </li>
+                                    <li>
+                                        <label for="pass">Password <span class="required">*</span></label>
+                                        {{ form.password }}
+                                    </li>
+                                </ul>
