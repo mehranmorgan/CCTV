@@ -1,55 +1,168 @@
 {% load static %}
 <div class="container jtv-home-revslider">
     <div class="row">
-      <div class="col-lg-9 col-sm-9 col-xs-12 jtv-main-home-slider">
-        <div id='rev_slider_1_wrapper' class='rev_slider_wrapper fullwidthbanner-container'>
-          <div id='rev_slider_1' class='rev_slider fullwidthabanner'>
-            <ul>
-              <li data-transition='slotzoom-horizontal' data-slotamount='7' data-masterspeed='1000' data-thumb='images/slider/1200EMPA.JPG'><img src='{% static 'images/slider/slide-img4.jpg' %}' alt="slider image1" data-bgposition='left top'  data-bgfit='cover' data-bgrepeat='no-repeat'  />
-                <div class="info">
-                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='0'  data-y='165'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;white-space:nowrap;'><span>Shop The Trend</span></div>
-                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='0'  data-y='220'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;white-space:nowrap;'>Amazing Chance!</div>
-                  <div    class='tp-caption Title sft  tp-resizeme ' data-x='0'  data-y='300'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'>Our new arrivals can't wait to meet you.</div>
-                  <div class='tp-caption sfb  tp-resizeme ' data-x='0'  data-y='350'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'><a href='#' class="buy-btn">Browse Now</a></div>
+        <div class="col-lg-9 col-sm-9 col-xs-12 jtv-main-home-slider">
+            <div id='rev_slider_1_wrapper' class='rev_slider_wrapper fullwidthbanner-container'>
+                <div id='rev_slider_1' class='rev_slider fullwidthabanner'>
+                    <ul>
+                        {% for com in commercial %}
+                        <li data-transition='slotzoom-horizontal' data-slotamount='7' data-masterspeed='1000'
+                            data-thumb='images/slider/1200EMPA.JPG'><img src="{{ com.image.url }}" alt="slider image1" data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat'/>
+                            <div class="info">
+                                {#                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='0'  data-y='165'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;white-space:nowrap;'><span></span></div>#}
+                                {#                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='0'  data-y='220'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;white-space:nowrap;'>Amazing Chance!</div>#}
+                                {#                  <div    class='tp-caption Title sft  tp-resizeme ' data-x='0'  data-y='300'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'></div>#}
+                                {#                  <div class='tp-caption sfb  tp-resizeme ' data-x='0'  data-y='350'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'><a href='#' class="buy-btn"></a></div>#}
+                            </div>
+                        </li>
+                        {% endfor %}
+{#                        <li data-transition='slotzoom-horizontal' data-slotamount='7' data-masterspeed='1000'#}
+{#                            data-thumb='images/slider/1200EMPA.JPG'><img#}
+{#                                src='{% static 'images/full color baner.png' %}'#}
+{#                                alt="slider image1" data-bgposition='left top'#}
+{#                                data-bgfit='cover' data-bgrepeat='no-repeat'/>#}
+{#                            <div class="info">#}
+                                {#                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='0'  data-y='165'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;white-space:nowrap;'><span></span></div>#}
+                                {#                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='0'  data-y='220'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;white-space:nowrap;'>Amazing Chance!</div>#}
+                                {#                  <div    class='tp-caption Title sft  tp-resizeme ' data-x='0'  data-y='300'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'></div>#}
+                                {#                  <div class='tp-caption sfb  tp-resizeme ' data-x='0'  data-y='350'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'><a href='#' class="buy-btn"></a></div>#}
+{#                            </div>#}
+{#                        </li>#}
+{#                        <li data-transition='slotzoom-horizontal' data-slotamount='7' data-masterspeed='1000'#}
+{#                            data-thumb='images/slider/1200EMPA.JPG'><img src='{% static 'images/dahua slider.png' %}'#}
+{#                                                                         alt="slider image1" data-bgposition='left top'#}
+{#                                                                         data-bgfit='cover' data-bgrepeat='no-repeat'/>#}
+{#                            <div class="info">#}
+                                {#                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='0'  data-y='165'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;white-space:nowrap;'><span></span></div>#}
+                                {#                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='0'  data-y='220'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;white-space:nowrap;'>Amazing Chance!</div>#}
+                                {#                  <div    class='tp-caption Title sft  tp-resizeme ' data-x='0'  data-y='300'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'></div>#}
+                                {#                  <div class='tp-caption sfb  tp-resizeme ' data-x='0'  data-y='350'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'><a href='#' class="buy-btn"></a></div>#}
+{#                            </div>#}
+{#                        </li>#}
+{##}
+{#                        <li data-transition='slotzoom-horizontal' data-slotamount='7' data-masterspeed='1000'#}
+{#                            data-thumb='images/da'><img#}
+{#                                src='{% static 'images/hick baner.png' %}'#}
+{#                                alt="slider image1" data-bgposition='left top'#}
+{#                                data-bgfit='cover' data-bgrepeat='no-repeat'/>#}
+{#                            <div class="info">#}
+                                {#                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='0'  data-y='165'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;white-space:nowrap;'><span></span></div>#}
+                                {#                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='0'  data-y='220'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;white-space:nowrap;'>Amazing Chance!</div>#}
+                                {#                  <div    class='tp-caption Title sft  tp-resizeme ' data-x='0'  data-y='300'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'></div>#}
+                                {#                  <div class='tp-caption sfb  tp-resizeme ' data-x='0'  data-y='350'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'><a href='#' class="buy-btn"></a></div>#}
+{#                            </div>#}
+{#                        </li>#}
+{##}
+{#                        <li data-transition='slotzoom-horizontal' data-slotamount='7' data-masterspeed='1000'#}
+{#                            data-thumb='images/slider/1200EMPA.JPG'><img#}
+{#                                src='{% static 'images/hick baner2.png' %}'#}
+{#                                alt="slider image1" data-bgposition='left top'#}
+{#                                data-bgfit='cover' data-bgrepeat='no-repeat'/>#}
+{#                            <div class="info">#}
+                                {#                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='0'  data-y='165'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;white-space:nowrap;'><span></span></div>#}
+                                {#                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='0'  data-y='220'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;white-space:nowrap;'>Amazing Chance!</div>#}
+                                {#                  <div    class='tp-caption Title sft  tp-resizeme ' data-x='0'  data-y='300'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'></div>#}
+                                {#                  <div class='tp-caption sfb  tp-resizeme ' data-x='0'  data-y='350'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'><a href='#' class="buy-btn"></a></div>#}
+{#                            </div>#}
+{#                        </li>#}
+{##}
+{##}
+{#                        <li data-transition='slotzoom-horizontal' data-slotamount='7' data-masterspeed='1000'#}
+{#                            data-thumb='images/slider/1200EMPA.JPG'><img#}
+{#                                src='{% static 'images/hick baner3.png' %}'#}
+{#                                alt="slider image1" data-bgposition='left top'#}
+{#                                data-bgfit='cover' data-bgrepeat='no-repeat'/>#}
+{#                            <div class="info">#}
+                                {#                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='0'  data-y='165'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;white-space:nowrap;'><span></span></div>#}
+                                {#                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='0'  data-y='220'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;white-space:nowrap;'>Amazing Chance!</div>#}
+                                {#                  <div    class='tp-caption Title sft  tp-resizeme ' data-x='0'  data-y='300'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'></div>#}
+                                {#                  <div class='tp-caption sfb  tp-resizeme ' data-x='0'  data-y='350'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'><a href='#' class="buy-btn"></a></div>#}
+{#                            </div>#}
+{#                        </li>#}
+
+{#                        <li data-transition='slotzoom-horizontal' data-slotamount='7' data-masterspeed='1000'#}
+{#                            data-thumb='images/slider/slide-img3.jpg'><img#}
+{#                                src='{% static 'images/slider/slide-img3.jpg' %}' alt="slider image2"#}
+{#                                data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat'/>#}
+{#                            <div class="info">#}
+{#                                <div class='tp-caption ExtraLargeTitle sft slide2  tp-resizeme ' data-x='45'#}
+{#                                     data-y='165' data-endspeed='500' data-speed='500' data-start='1100'#}
+{#                                     data-easing='Linear.easeNone' data-splitin='none' data-splitout='none'#}
+{#                                     data-elementdelay='0.1' data-endelementdelay='0.1'#}
+{#                                     style='z-index:2;white-space:nowrap;padding-right:0px'><span>Spring Fashion</span>#}
+{#                                </div>#}
+{#                                <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45' data-y='220'#}
+{#                                     data-endspeed='500' data-speed='500' data-start='1300'#}
+{#                                     data-easing='Linear.easeNone' data-splitin='none' data-splitout='none'#}
+{#                                     data-elementdelay='0.1' data-endelementdelay='0.1'#}
+{#                                     style='z-index:3;white-space:nowrap;'>Be Summer Ready#}
+{#                                </div>#}
+{#                                <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='300'#}
+{#                                     data-endspeed='500' data-speed='500' data-start='1500'#}
+{#                                     data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none'#}
+{#                                     data-elementdelay='0.1' data-endelementdelay='0.1'#}
+{#                                     style='z-index:4;white-space:nowrap;'>Identify your Look, Define your Style!#}
+{#                                </div>#}
+{#                                <div class='tp-caption sfb  tp-resizeme ' data-x='45' data-y='350' data-endspeed='500'#}
+{#                                     data-speed='500' data-start='1500' data-easing='Linear.easeNone'#}
+{#                                     data-splitin='none' data-splitout='none' data-elementdelay='0.1'#}
+{#                                     data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'><a href='#'#}
+{#                                                                                                         class="buy-btn">Join#}
+{#                                    us</a></div>#}
+{#                            </div>#}
+{#                        </li>#}
+{#                        <li data-transition='slotzoom-horizontal' data-slotamount='7' data-masterspeed='1000'#}
+{#                            data-thumb='images/slider/slide-img2.jpg'><img#}
+{#                                src='{% static 'images/slider/slide-img2.jpg' %}' alt="slider image3"#}
+{#                                data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat'/>#}
+{#                            <div class="info">#}
+{#                                <div class='tp-caption ExtraLargeTitle sft slide2  tp-resizeme ' data-x='45'#}
+{#                                     data-y='165' data-endspeed='500' data-speed='500' data-start='1100'#}
+{#                                     data-easing='Linear.easeNone' data-splitin='none' data-splitout='none'#}
+{#                                     data-elementdelay='0.1' data-endelementdelay='0.1'#}
+{#                                     style='z-index:2;white-space:nowrap;padding-right:0px'><span>Big Sale</span></div>#}
+{#                                <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45' data-y='220'#}
+{#                                     data-endspeed='500' data-speed='500' data-start='1300'#}
+{#                                     data-easing='Linear.easeNone' data-splitin='none' data-splitout='none'#}
+{#                                     data-elementdelay='0.1' data-endelementdelay='0.1'#}
+{#                                     style='z-index:3;white-space:nowrap;'>New Fashion#}
+{#                                </div>#}
+{#                                <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='300'#}
+{#                                     data-endspeed='500' data-speed='500' data-start='1500'#}
+{#                                     data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none'#}
+{#                                     data-elementdelay='0.1' data-endelementdelay='0.1'#}
+{#                                     style='z-index:4;white-space:nowrap;'>Look great & feel amazing in our stunning#}
+{#                                    dresses.#}
+{#                                </div>#}
+{#                                <div class='tp-caption sfb  tp-resizeme ' data-x='45' data-y='350' data-endspeed='500'#}
+{#                                     data-speed='500' data-start='1500' data-easing='Linear.easeNone'#}
+{#                                     data-splitin='none' data-splitout='none' data-elementdelay='0.1'#}
+{#                                     data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'><a href='#'#}
+{#                                                                                                         class="buy-btn">Buy#}
+{#                                    Now</a></div>#}
+{#                            </div>#}
+{#                        </li>#}
+                    </ul>
                 </div>
-              </li>
-              <li data-transition='slotzoom-horizontal' data-slotamount='7' data-masterspeed='1000' data-thumb='images/slider/slide-img3.jpg'><img src='{% static 'images/slider/slide-img3.jpg' %}' alt="slider image2" data-bgposition='left top'  data-bgfit='cover' data-bgrepeat='no-repeat'  />
-                <div class="info">
-                  <div class='tp-caption ExtraLargeTitle sft slide2  tp-resizeme ' data-x='45'  data-y='165'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;white-space:nowrap;padding-right:0px'><span>Spring Fashion</span></div>
-                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45'  data-y='220'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;white-space:nowrap;'>Be Summer Ready</div>
-                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45'  data-y='300'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'>Identify your Look, Define your Style!</div>
-                  <div    class='tp-caption sfb  tp-resizeme ' data-x='45'  data-y='350'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'><a href='#' class="buy-btn">Join us</a></div>
-                </div>
-              </li>
-              <li data-transition='slotzoom-horizontal' data-slotamount='7' data-masterspeed='1000' data-thumb='images/slider/slide-img2.jpg'><img src='{% static 'images/slider/slide-img2.jpg' %}' alt="slider image3" data-bgposition='left top'  data-bgfit='cover' data-bgrepeat='no-repeat'  />
-                <div class="info">
-                  <div class='tp-caption ExtraLargeTitle sft slide2  tp-resizeme ' data-x='45'  data-y='165'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;white-space:nowrap;padding-right:0px'><span>Big Sale</span></div>
-                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45'  data-y='220'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;white-space:nowrap;'>New Fashion</div>
-                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45'  data-y='300'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'>Look great & feel amazing in our stunning dresses.</div>
-                  <div    class='tp-caption sfb  tp-resizeme ' data-x='45'  data-y='350'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;white-space:nowrap;'><a href='#' class="buy-btn">Buy Now</a></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <div class="banner-block"> <a href="#"> <img src="{% static 'images/banner1.jpg' %}" alt=""> </a>
-          <div class="text-des-container pad-zero">
-            <div class="text-des">
-              <p>Designer</p>
-              <h2>Handbags</h2>
             </div>
-          </div>
         </div>
-        <div class="banner-block"> <a href="#"> <img src="{% static 'images/banner2.jpg' %}" alt=""> </a>
-          <div class="text-des-container">
-            <div class="text-des">
-              <p>The Ultimate</p>
-              <h2>Shoes Collection</h2>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div class="banner-block"><a href="#"> <img src="{% static 'images/slider/dahua wallpapeer.jpg' %}" alt=""> </a>
+                <div class="text-des-container pad-zero">
+                    <div class="text-des">
+                        <p></p>
+                        <h2>DAHUA Collection</h2>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="banner-block"><a href="#"> <img src="{% static 'images/slider/hick wallpaper.jpg' %}" alt=""> </a>
+                <div class="text-des-container">
+                    <div class="text-des">
+                        <p></p>
+                        <h2>HICKVISON Collection</h2>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>

@@ -3,16 +3,14 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, TemplateView, CreateView
 
-from Product.models import Product, Category, MainCategory, Brand, Likes
+from Product.models import Product, Category, MainCategory, Brand, Likes, ComericalSlider
 
 
 # Create your views here.
 def home(request):
     brands = Brand.objects.all()
-    return render(request, 'index.html', {
-
-        'brands': brands,
-    })
+    Comerical = ComericalSlider.objects.all()
+    return render(request, 'index.html', {'brands': brands, 'comerical': Comerical})
 
 
 def shop_grid(request, category_slug):
@@ -77,7 +75,6 @@ class Home(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['brands'] = Brand.objects.all()
+        context['commercial'] = ComericalSlider.objects.all()
+
         return context
-
-
-

@@ -69,3 +69,11 @@ class Likes(models.Model):
 
     def __str__(self):
         return f'{self.product},{self.user}'
+
+
+class ComericalSlider(models.Model):
+    name=models.ForeignKey(MainCategory,on_delete=models.CASCADE,related_name='slider')
+    image=models.ImageField(upload_to='media')
+
+    def __str__(self):
+        return self.name.cat
