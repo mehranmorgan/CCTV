@@ -44,19 +44,19 @@
                                                         class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>
                                                 <div class="item-price">
                                                     <div class="price-box"><span class="regular-price"> <span
-                                                            class="price">{{ item.price|intcomma:False }}</span></span>
+                                                            class="price">{{ item.off_price|intcomma:False }}</span></span>
                                                         <p class="old-price"><span
                                                                 class="price-label">Regular Price:</span>
-                                                            <span class="price"> $269.00 </span></p>
+                                                            <span class="price"> {{ item.price|intcomma:False }} </span></p>
                                                     </div>
                                                 </div>
-                                                <div class="actions">
-                                                    <div class="add_cart">
-                                                        <button class="button btn-cart" type="button"><span><i
-                                                                class="fa fa-shopping-cart"></i> Add to Cart</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
+{#                                                <div class="actions">#}
+{#                                                    <div class="add_cart">#}
+{#                                                        <button class="button btn-cart" type="button"><span><i#}
+{#                                                                class="fa fa-shopping-cart"></i> Add to Cart</span>#}
+{#                                                        </button>#}
+{#                                                    </div>#}
+{#                                                </div>#}
                                             </div>
                                         </div>
                                     </div>

@@ -43,7 +43,7 @@ class Product(models.Model):
     qty = models.PositiveSmallIntegerField()
     off = models.PositiveSmallIntegerField(null=True, blank=True)
     slug = models.SlugField(null=True, blank=True)
-
+    off_price=models.PositiveSmallIntegerField(null=True,blank=True)
     def __str__(self):
         return f'{self.cat}#{self.name}#{self.price}#{self.off}#{self.qty}'
 
@@ -51,6 +51,8 @@ class Product(models.Model):
             self, force_insert=False, force_update=False, using=None, update_fields=None
     ):
         self.slug = slugify(self.name)
+
+        self.off_price=self.price-(self.off*self.price/100)
         super(Product, self).save()
 
 
