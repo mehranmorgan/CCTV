@@ -1,10 +1,452 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'Layout.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+    <!-- Main Container -->
+    <div class="main-container col2-left-layout">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-sm-push-3 main-inner">
+                    <div class="category-description std">
+                        <div class="slider-items-products">
+                            <div id="category-desc-slider" class="product-flexslider hidden-buttons">
+                                <div class="slider-items slider-width-col1 owl-carousel owl-theme">
+                                    <div class="item"><a href="#"><img alt="New Special Collection"
+                                                                       src="images/new-special.jpg"></a>
+                                        <div class="cat-img-title cat-bg cat-box">
+                                            <h2 class="cat-heading">New Special<br>
+                                                Collection</h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                        </div>
+                                    </div>
+                                    <div class="item"><a href="#"><img alt="New Fashion"
+                                                                       src="images/new-fashion.jpg"></a>
+                                        <div class="cat-img-title cat-bg cat-box">
+                                            <h2 class="cat-heading">New Fashion</h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <article class="col-main">
+                        <div class="page-title">
+                            <h2>Clothing</h2>
+                        </div>
+                        <div class="toolbar">
+                            <div class="sorter">
+                                <div class="view-mode"><span title="Grid" class="button button-active button-grid">&nbsp;</span><a
+                                        href="shop-list-sidebar.html" title="List" class="button-list">&nbsp;</a></div>
+                            </div>
+                            <div id="sort-by">
+                                <label class="left">Sort By: </label>
+                                <ul>
+                                <form method="get">
+                                    <select class="select2-container" name="filter">
+                                        <option value="none">None</option>
+                                        {% for cat in maincat.category_set.all %}
+                                            <option value="{{ cat.category }}">{{ cat.category }}</option>
+                                        {% endfor %}
+                                    </select>
+                                <button type="submit">sort</button>
+                                </form>
+                                </ul>
+{#                                <a class="button-asc left" href="#" title="Set Descending Direction"><span#}
+{#                                        class="top_arrow"></span></a></div>#}
+{#                            <div class="pager">#}
+{#                                <div id="limiter">#}
+{#                                    <label>View: </label>#}
+{#                                    <ul>#}
+{#                                        <li><a href="#">15<span class="right-arrow"></span></a>#}
+{#                                            <ul>#}
+{#                                                <li><a href="#">20</a></li>#}
+{#                                                <li><a href="#">30</a></li>#}
+{#                                                <li><a href="#">35</a></li>#}
+{#                                            </ul>#}
+{#                                        </li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+{#                            </div>#}
+                        </div>
+                        <div class="category-products">
+                            <ul class="products-grid">
+
+
+                            {% for prodouct in products %}
+                                <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                    <div class="item-inner">
+                                        <div class="item-img">
+                                            <div class="item-img-info"><a class="product-image"
+                                                                          title="Product tilte is here"
+                                                                          href="{% url 'Home:product_detail' prodouct.slug %}"> <img
+                                                    alt="Product tilte is here"
+                                                    src="{{ prodouct.image.url }}"> </a>
+{#                                                <div class="mask-shop-white"></div>#}
+{#                                                <div class="new-label new-top-left">new</div>#}
+{#                                                <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>#}
+{#                                                <a href="wishlist.html">#}
+{#                                                    <div class="mask-left-shop"><i class="fa fa-heart"></i></div>#}
+{#                                                </a> <a href="compare.html">#}
+{#                                                    <div class="mask-right-shop"><i class="fa fa-signal"></i></div>#}
+{#                                                </a></div>#}
+                                        </div>
+                                        <div class="item-info">
+                                            <div class="info-inner">
+
+                                                <div class="item-title"><a title="Product tilte is here"
+                                                                            href="{% url 'Home:product_detail' prodouct.slug %}">{{ prodouct.name }} </a></div>
+                                                <div class="item-content">
+                                                    <div class="rating"><i class="fa fa-star"></i> <i
+                                                            class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                            class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>
+                                                    <div class="item-price">
+                                                        <div class="price-box"><span class="regular-price"> <span
+                                                                class="price">{{ prodouct.off_price|intcomma:False }}</span></span>
+                                                            <p class="old-price"><span class="price-label">Regular Price:</span>
+                                                                <span class="price"> {{prodouct.price|intcomma:False}} </span></p>
+                                                        </div>
+                                                    </div>
+{#                                                    <div class="actions">#}
+{#                                                        <div class="add_cart">#}
+{#                                                            <button class="button btn-cart" type="button"><span><i#}
+{#                                                                    class="fa fa-shopping-cart"></i> Add to Cart</span>#}
+{#                                                            </button>#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </li>
+                                                {% endfor %}
+
+                            </ul>
+                        </div>
+                        <div class="toolbar bottom">
+                            <div class="row">
+                                <div class="col-sm-6 text-left">
+                                    <div class="pages">
+                                        <ul class="pagination">
+                                            <li><a href="#">«</a></li>
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 text-right">Showing 1 to 15 of 25 (2 Pages)</div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="sidebar col-sm-3 col-xs-12 col-sm-pull-9">
+                    <aside class="sidebar">
+                        <div class="block block-layered-nav">
+                            <div class="block-title">
+                                <h3>Shop By</h3>
+                            </div>
+                            <div class="block-content">
+                                <p class="block-subtitle">Shopping Options</p>
+                                <dl id="narrow-by-list">
+                                    <dt class="odd">Price</dt>
+                                    <dd class="odd">
+                                        <ol>
+                                            <li><a href="#"><span class="price">$0.00</span> - <span class="price">$99.99</span></a>
+                                                (6)
+                                            </li>
+                                            <li><a href="#"><span class="price">$100.00</span> and above</a> (6)</li>
+                                        </ol>
+                                    </dd>
+                                    <dt class="even">Manufacturer</dt>
+                                    <dd class="even">
+                                        <ol>
+                                            {% for cat in maincat.%}
+                                            <li><a href="#">{{cat.cat}}</a> (20)</li>
+                                            {% endfor %}
+                                        </ol>
+                                    </dd>
+                                    <dt class="odd">Product Category</dt>
+                                    <dd class="odd">
+                                        <ol class="bag-material">
+                                            {% for cat in maincat.category_set.all %}
+                                            <li>
+                                                <div class="pretty p-icon p-smooth">
+                                                    <input type="checkbox" name="Material" value="Cotton"/>
+                                                    <div class="state p-success"><i class="icon fa fa-check"></i>
+                                                        <label>{{ cat.category }}</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            {% endfor %}
+                                        </ol>
+                                    </dd>
+                                    <dt class="odd">Size</dt>
+{#                                    <div class="size-area">#}
+{#                                        <div class="size">#}
+{#                                            <ul>#}
+{#                                                <li><a href="#">S</a></li>#}
+{#                                                <li><a href="#">L</a></li>#}
+{#                                                <li><a href="#">M</a></li>#}
+{#                                                <li><a href="#">XL</a></li>#}
+{#                                                <li><a href="#">XXL</a></li>#}
+{#                                            </ul>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    <dt class="odd">Color</dt>#}
+{#                                    <dd class="odd">#}
+{#                                        <ol>#}
+{#                                            <li><a href="#">Green</a> (1)</li>#}
+{#                                            <li><a href="#">White</a> (5)</li>#}
+{#                                            <li><a href="#">Black</a> (5)</li>#}
+{#                                            <li><a href="#">Gray</a> (4)</li>#}
+{#                                            <li><a href="#">Dark Gray</a> (3)</li>#}
+{#                                            <li><a href="#">Blue</a> (1)</li>#}
+{#                                        </ol>#}
+{#                                    </dd>#}
+{#                                </dl>#}
+{#                            </div>#}
+{#                        </div>#}
+                        <div class="block product-price-range ">
+                            <div class="block-title">
+                                <h3>Price</h3>
+                            </div>
+                            <div class="block-content">
+                                <div class="slider-range">
+                                    <div data-label-reasult="Range:" data-min="0" data-max="500" data-unit="$"
+                                         class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
+                                         data-value-min="50" data-value-max="350">
+                                        <div class="ui-slider-range ui-widget-header ui-corner-all"
+                                             style="left: 10%; width: 60%;"></div>
+                                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"
+                                              style="left: 10%;"></span><span
+                                            class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"
+                                            style="left: 70%;"></span></div>
+                                    <div class="amount-range-price">Range: $10 - $550</div>
+                                    <ul class="check-box-list">
+                                        <li>
+                                            <div class="pretty p-icon p-smooth">
+                                                <input type="checkbox" name="cc" value="p1"/>
+                                                <div class="state p-success"><i class="icon fa fa-check"></i>
+                                                    <label for="p1"> $20 - $100<span class="count">(5)</span> </label>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="pretty p-icon p-smooth">
+                                                <input type="checkbox" name="cc" value="p2"/>
+                                                <div class="state p-success"><i class="icon fa fa-check"></i>
+                                                    <label for="p1"> $100 - $300<span class="count">(12)</span> </label>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="pretty p-icon p-smooth">
+                                                <input type="checkbox" name="cc" value="p3"/>
+                                                <div class="state p-success"><i class="icon fa fa-check"></i>
+                                                    <label for="p1"> $300 - $500<span class="count">(15)</span> </label>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block block-cart">
+                            <div class="block-title ">
+                                <h3>My Cart</h3>
+                            </div>
+                            <div class="block-content">
+                                <div class="summary">
+                                    <p class="amount">There are <a href="shopping_cart.html">3 items</a> in your cart.
+                                    </p>
+                                    <p class="subtotal"><span class="label">Cart Subtotal:</span> <span class="price">$227.99</span>
+                                    </p>
+                                </div>
+                                <div class="ajax-checkout">
+                                    <button class="button button-checkout" title="Submit" type="submit">
+                                        <span>Checkout</span></button>
+                                </div>
+                                <p class="block-subtitle">Recently added item(s) </p>
+                                <ul>
+                                    <li class="item"><a href="shopping_cart.html" title="Product Title Here"
+                                                        class="product-image"><img
+                                            src="images/products/product-fashion-1.jpg" alt="Product Title Here"></a>
+                                        <div class="product-details">
+                                            <div class="access"><a href="shopping_cart.html" title="Remove This Item"
+                                                                   class="jtv-btn-remove"> <span class="icon"></span>
+                                                Remove </a></div>
+                                            <p class="product-name"><a href="shopping_cart.html">Product Title Here</a>
+                                            </p>
+                                            <strong>1</strong> x <span class="price">$99.99</span></div>
+                                    </li>
+                                    <li class="item"><a href="shopping_cart.html" title="Product Title Here"
+                                                        class="product-image"><img
+                                            src="images/products/product-fashion-1.jpg" alt="Product Title Here"></a>
+                                        <div class="product-details">
+                                            <div class="access"><a href="shopping_cart.html" title="Remove This Item"
+                                                                   class="jtv-btn-remove"> <span class="icon"></span>
+                                                Remove </a></div>
+                                            <p class="product-name"><a href="shopping_cart.html">Product Title Here</a>
+                                            </p>
+                                            <strong>1</strong> x <span class="price">$88.00</span></div>
+                                    </li>
+                                    <li class="item"><a href="shopping_cart.html" title="Product Title Here"
+                                                        class="product-image"><img
+                                            src="images/products/product-fashion-1.jpg" alt="Product Title Here"></a>
+                                        <div class="product-details">
+                                            <div class="access"><a href="shopping_cart.html" title="Remove This Item"
+                                                                   class="jtv-btn-remove"> <span class="icon"></span>
+                                                Remove </a></div>
+                                            <p class="product-name"><a href="shopping_cart.html">Product Title Here</a>
+                                            </p>
+                                            <strong>1</strong> x <span class="price">$98.00</span></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="block block-compare">
+                            <div class="block-title ">Compare Products (2)</div>
+                            <div class="block-content">
+                                <ol id="compare-items">
+                                    <li class="item">
+                                        <input type="hidden" value="2173" class="compare-item-id">
+                                        <a class="jtv-btn-remove" title="Remove This Item" href="#"></a> <a href="#"
+                                                                                                            class="product-name"><i
+                                            class="fa fa-angle-right"></i>Product Title Here</a></li>
+                                    <li class="item">
+                                        <input type="hidden" value="2174" class="compare-item-id">
+                                        <a class="jtv-btn-remove" title="Remove This Item" href="#"></a> <a href="#"
+                                                                                                            class="product-name"><i
+                                            class="fa fa-angle-right"></i>Product Title Here</a></li>
+                                    <li class="item">
+                                        <input type="hidden" value="2175" class="compare-item-id">
+                                        <a class="jtv-btn-remove" title="Remove This Item" href="#"></a> <a href="#"
+                                                                                                            class="product-name"><i
+                                            class="fa fa-angle-right"></i>Product Title Here</a></li>
+                                </ol>
+                                <div class="ajax-checkout">
+                                    <button type="submit" title="Submit" class="button button-compare">
+                                        <span>Compare</span></button>
+                                    <button type="submit" title="Submit" class="button button-clear"><span>Clear</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="custom-slider">
+                            <div>
+                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li class="active" data-target="#carousel-example-generic"
+                                            data-slide-to="0"></li>
+                                        <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                                        <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        <div class="item active"><img src="images/slide3.jpg" alt="New Arrivals">
+                                            <div class="carousel-caption">
+                                                <h3><a title=" Sample Product" href="#">New Arrivals</a></h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                        </div>
+                                        <div class="item"><img src="images/slide1.jpg" alt="Top Fashion">
+                                            <div class="carousel-caption">
+                                                <h3><a title=" Sample Product" href="#">Top Fashion</a></h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                        </div>
+                                        <div class="item"><img src="images/slide2.jpg" alt="Mid Season">
+                                            <div class="carousel-caption">
+                                                <h3><a title=" Sample Product" href="#">Mid Season</a></h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="left carousel-control" href="#" data-slide="prev"> <span class="sr-only">Previous</span></a>
+                                    <a class="right carousel-control" href="#" data-slide="next"> <span class="sr-only">Next</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block block-list block-viewed">
+                            <div class="block-title">
+                                <h3>Recently Viewed</h3>
+                            </div>
+                            <div class="block-content">
+                                <ol id="recently-viewed-items">
+                                    <li class="item odd">
+                                        <p class="product-name"><a href="#"><i class="fa fa-angle-right"></i>Product
+                                            Title Here</a></p>
+                                    </li>
+                                    <li class="item even">
+                                        <p class="product-name"><a href="#"><i class="fa fa-angle-right"></i>Product
+                                            Title Here</a></p>
+                                    </li>
+                                    <li class="item last odd">
+                                        <p class="product-name"><a href="#"><i class="fa fa-angle-right"></i>Product
+                                            Title Here</a></p>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="block block-poll">
+                            <div class="block-title">
+                                <h3>Community Poll</h3>
+                            </div>
+                            <form id="pollForm" action="#" method="post"
+                                  onSubmit="return validatePollAnswerIsSelected();">
+                                <div class="block-content">
+                                    <p class="block-subtitle">What is your favorite color</p>
+                                    <ul id="poll-answers">
+                                        <li class="odd">
+                                            <input type="radio" name="vote" class="radio poll_vote" id="vote_1"
+                                                   value="1">
+                                            <span class="label">
+                      <label for="vote_1">Green</label>
+                      </span></li>
+                                        <li class="even">
+                                            <input type="radio" name="vote" class="radio poll_vote" id="vote_2"
+                                                   value="2">
+                                            <span class="label">
+                      <label for="vote_2">Red</label>
+                      </span></li>
+                                        <li class="odd">
+                                            <input type="radio" name="vote" class="radio poll_vote" id="vote_3"
+                                                   value="3">
+                                            <span class="label">
+                      <label for="vote_3">Black</label>
+                      </span></li>
+                                        <li class="last even">
+                                            <input type="radio" name="vote" class="radio poll_vote" id="vote_4"
+                                                   value="4">
+                                            <span class="label">
+                      <label for="vote_4">Pink</label>
+                      </span></li>
+                                    </ul>
+                                    <div class="actions">
+                                        <button type="submit" title="Vote" class="button button-vote"><span>Vote</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="block block-tags">
+                            <div class="block-title">
+                                <h3>Popular Tags</h3>
+                            </div>
+                            <div class="block-content">
+                                <div class="tags-list"><a href="#">Jwellery</a> <a href="#">Bag</a> <a
+                                        href="#">Clothing</a> <a href="#">Shoes</a> <a href="#">Watches</a> <a href="#">Beauty</a>
+                                    <a href="#">Accessories</a></div>
+                                <div class="actions"><a href="#" class="view-all">View All Tags</a></div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Container End -->
+{% endblock content %}

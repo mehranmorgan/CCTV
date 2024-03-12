@@ -9,6 +9,7 @@ urlpatterns = [
     path('shop_grid_slider/<slug:category_slug>', views.shop_grid, name='shop_grid_slider'),
     path('product_detail/<slug:slug>', views.ProductDetail.as_view(), name='product_detail'),
     path('like/<int:product_id>', views.like, name='like'),
+    path('AllProductGrid/<slug:slug>', views.ProductsAllGrid.as_view(), name='all_products_grid'),
 
 
 ]

@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.views import View
 from django.views.generic import DetailView, TemplateView, CreateView
 
 from Product.models import Product, Category, MainCategory, Brand, Likes, ComericalSlider
@@ -78,3 +79,24 @@ class Home(TemplateView):
         context['commercial'] = ComericalSlider.objects.all()
 
         return context
+
+
+class ProductsAllGrid(View):
+
+    def get(self, request, slug):
+        product_list = []
+        maincat = MainCategory.objects.get(slug=slug)
+        for cat in maincat.category_set.all():
+            for pro in cat.product_set.all():
+                product_list.append(pro)
+        filter_param = request.GET.get('filter')
+        print(filter_param)
+        if filter_param:
+            if filter_param != 'none':
+                product_list = []
+                for cat in maincat.category_set.filter(category__icontains=filter_param):
+                    for pro in cat.product_set.all():
+                        product_list.append(pro)
+            else:
+                return render(request, 'product_all_grid.html', {'products': product_list, 'maincat': maincat})
+        return render(request, 'product_all_grid.html', {'products': product_list, 'maincat': maincat})

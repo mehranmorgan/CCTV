@@ -51,7 +51,7 @@
             </ul>
         </li>
         {% for maincat in MAINCATS %}
-            <li><a href="#">{{ maincat.cat }}</a>
+            <li><a href="{% url 'Home:all_products_grid' maincat.slug %}">{{ maincat.cat }}</a>
                 <ul>
 
                     <li>

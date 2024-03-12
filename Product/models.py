@@ -38,12 +38,14 @@ class Product(models.Model):
     name = models.CharField(max_length=30, unique=True)
     brand = models.CharField(max_length=30)
     price = models.FloatField()
+    description = models.TextField(null=True,blank=True)
     warranty = models.CharField(max_length=30)
     image = models.ImageField(upload_to='Media/product')
     qty = models.PositiveSmallIntegerField()
     off = models.PositiveSmallIntegerField(null=True, blank=True)
     slug = models.SlugField(null=True, blank=True)
-    off_price=models.PositiveSmallIntegerField(null=True,blank=True)
+    off_price = models.PositiveSmallIntegerField(null=True, blank=True)
+
     def __str__(self):
         return f'{self.cat}#{self.name}#{self.price}#{self.off}#{self.qty}'
 
@@ -52,7 +54,7 @@ class Product(models.Model):
     ):
         self.slug = slugify(self.name)
 
-        self.off_price=self.price-(self.off*self.price/100)
+        self.off_price = self.price - (self.off * self.price / 100)
         super(Product, self).save()
 
 
@@ -74,8 +76,8 @@ class Likes(models.Model):
 
 
 class ComericalSlider(models.Model):
-    name=models.ForeignKey(MainCategory,on_delete=models.CASCADE,related_name='slider')
-    image=models.ImageField(upload_to='media')
+    name = models.ForeignKey(MainCategory, on_delete=models.CASCADE, related_name='slider')
+    image = models.ImageField(upload_to='media')
 
     def __str__(self):
         return self.name.cat

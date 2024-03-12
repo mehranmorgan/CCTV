@@ -4,7 +4,7 @@
     <div class="jtv-trending-products">
         <div class="slider-items-products">
             <div class="jtv-new-title">
-                <h2>{{ maincat.cat }}</h2>
+                <h2><a href="{% url 'Home:all_products_grid' maincat.slug %}">{{ maincat.cat }}</a></h2>
 
             </div>
             <div id="trending-slider" class="product-flexslider hidden-buttons">
