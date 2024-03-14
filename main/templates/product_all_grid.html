@@ -164,8 +164,8 @@
                                     <dt class="even">Manufacturer</dt>
                                     <dd class="even">
                                         <ol>
-                                            {% for cat in maincat.%}
-                                            <li><a href="#">{{cat.cat}}</a> (20)</li>
+                                            {% for cat in MAINCATS %}
+                                            <li><a href="{% url 'Home:all_products_grid' cat.slug %}">{{cat.cat}}</a>({{ cat.category_set.count }})</li>
                                             {% endfor %}
                                         </ol>
                                     </dd>
@@ -184,7 +184,7 @@
                                             {% endfor %}
                                         </ol>
                                     </dd>
-                                    <dt class="odd">Size</dt>
+{#                                    <dt class="odd">Size</dt>#}
 {#                                    <div class="size-area">#}
 {#                                        <div class="size">#}
 {#                                            <ul>#}

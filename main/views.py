@@ -86,6 +86,7 @@ class ProductsAllGrid(View):
     def get(self, request, slug):
         product_list = []
         maincat = MainCategory.objects.get(slug=slug)
+        MAINCATS=MainCategory.objects.all()
         for cat in maincat.category_set.all():
             for pro in cat.product_set.all():
                 product_list.append(pro)
@@ -99,4 +100,4 @@ class ProductsAllGrid(View):
                         product_list.append(pro)
             else:
                 return render(request, 'product_all_grid.html', {'products': product_list, 'maincat': maincat})
-        return render(request, 'product_all_grid.html', {'products': product_list, 'maincat': maincat})
+        return render(request, 'product_all_grid.html', {'products': product_list, 'maincat': maincat,'MAINCATS':MAINCATS})
