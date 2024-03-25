@@ -470,12 +470,13 @@
                 <div class="related-block">
                     <div id="jtv-related-products-slider" class="product-flexslider hidden-buttons">
                         <div class="slider-items slider-width-col4 products-grid">
+                            {% for pro in rp %}
                             <div class="item">
                                 <div class="item-inner">
                                     <div class="item-img">
                                         <div class="item-img-info"><a class="product-image"
                                                                       title="Product tilte is here" href="#"> <img
-                                                alt="Product tilte is here" src="images/products/product-fashion-1.jpg">
+                                                alt="Product tilte is here" src="{{ pro.image.url  }}">
                                         </a>
                                             <div class="new-label new-top-left">new</div>
                                             <div class="mask-shop-white"></div>
@@ -489,15 +490,14 @@
                                     </div>
                                     <div class="item-info">
                                         <div class="info-inner">
-                                            <div class="item-title"><a title="Product tilte is here" href="#"> Product
-                                                tilte is here </a></div>
+                                            <div class="item-title"><a title="Product tilte is here" href="#"> {{ pro.name }} </a></div>
                                             <div class="item-content">
                                                 <div class="rating"><i class="fa fa-star"></i> <i
                                                         class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i
                                                         class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>
                                                 <div class="item-price">
                                                     <div class="price-box"><span class="regular-price"> <span
-                                                            class="price">$115.00</span></span></div>
+                                                            class="price">{{ pro.off_price }}</span></span></div>
                                                 </div>
                                                 <div class="actions">
                                                     <button class="button btn-cart" type="button"><span><i
@@ -508,230 +508,231 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="item-inner">
-                                    <div class="item-img">
-                                        <div class="item-img-info"><a class="product-image"
-                                                                      title="Product tilte is here" href="#"> <img
-                                                alt="Product tilte is here" src="images/products/product-fashion-1.jpg">
-                                        </a>
-                                            <div class="sale-label sale-top-right">Sale</div>
-                                            <div class="mask-shop-white"></div>
-                                            <div class="new-label new-top-left">new</div>
-                                            <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>
-                                            <a href="wishlist.html">
-                                                <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
-                                            </a> <a href="compare.html">
-                                                <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
-                                            </a></div>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="info-inner">
-                                            <div class="item-title"><a title="Product tilte is here" href="#"> Product
-                                                tilte is here </a></div>
-                                            <div class="item-content">
-                                                <div class="rating"><i class="fa fa-star"></i> <i
-                                                        class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i
-                                                        class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>
-                                                <div class="item-price">
-                                                    <div class="price-box"><span class="regular-price"> <span
-                                                            class="price">$99.00</span></span></div>
-                                                </div>
-                                                <div class="actions">
-                                                    <button class="button btn-cart" type="button"><span><i
-                                                            class="fa fa-shopping-cart"></i> Add to Cart</span></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="item-inner">
-                                    <div class="item-img">
-                                        <div class="item-img-info"><a class="product-image"
-                                                                      title="Product tilte is here" href="#"> <img
-                                                alt="Product tilte is here" src="images/products/product-fashion-1.jpg">
-                                        </a>
-                                            <div class="mask-shop-white"></div>
-                                            <div class="new-label new-top-left">new</div>
-                                            <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>
-                                            <a href="wishlist.html">
-                                                <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
-                                            </a> <a href="compare.html">
-                                                <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
-                                            </a></div>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="info-inner">
-                                            <div class="item-title"><a title="Product tilte is here" href="#"> Product
-                                                tilte is here </a></div>
-                                            <div class="item-content">
-                                                <div class="rating"><i class="fa fa-star"></i> <i
-                                                        class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i
-                                                        class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>
-                                                <div class="item-price">
-                                                    <div class="price-box"><span class="regular-price"> <span
-                                                            class="price">$79.90</span></span></div>
-                                                </div>
-                                                <div class="actions">
-                                                    <button class="button btn-cart" type="button"><span><i
-                                                            class="fa fa-shopping-cart"></i> Add to Cart</span></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="item-inner">
-                                    <div class="item-img">
-                                        <div class="item-img-info"><a class="product-image"
-                                                                      title="Product tilte is here" href="#"> <img
-                                                alt="Product tilte is here" src="images/products/product-fashion-1.jpg">
-                                        </a>
-                                            <div class="sale-label sale-top-left">Sale</div>
-                                            <div class="mask-shop-white"></div>
-                                            <div class="new-label new-top-left">new</div>
-                                            <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>
-                                            <a href="wishlist.html">
-                                                <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
-                                            </a> <a href="compare.html">
-                                                <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
-                                            </a></div>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="info-inner">
-                                            <div class="item-title"><a title="Product tilte is here" href="#"> Product
-                                                tilte is here </a></div>
-                                            <div class="item-content">
-                                                <div class="rating"><i class="fa fa-star"></i> <i
-                                                        class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i
-                                                        class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>
-                                                <div class="item-price">
-                                                    <div class="price-box"><span class="regular-price"> <span
-                                                            class="price">$49.00</span></span></div>
-                                                </div>
-                                                <div class="actions">
-                                                    <button class="button btn-cart" type="button"><span><i
-                                                            class="fa fa-shopping-cart"></i> Add to Cart</span></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="item-inner">
-                                    <div class="item-img">
-                                        <div class="item-img-info"><a class="product-image"
-                                                                      title="Product tilte is here" href="#"> <img
-                                                alt="Product tilte is here" src="images/products/product-fashion-1.jpg">
-                                        </a>
-                                            <div class="mask-shop-white"></div>
-                                            <div class="new-label new-top-left">new</div>
-                                            <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>
-                                            <a href="wishlist.html">
-                                                <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
-                                            </a> <a href="compare.html">
-                                                <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
-                                            </a></div>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="info-inner">
-                                            <div class="item-title"><a title="Product tilte is here" href="#"> Product
-                                                tilte is here </a></div>
-                                            <div class="item-content">
-                                                <div class="rating"><i class="fa fa-star"></i> <i
-                                                        class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i
-                                                        class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>
-                                                <div class="item-price">
-                                                    <div class="price-box"><span class="regular-price"> <span
-                                                            class="price">$97.00</span></span></div>
-                                                </div>
-                                                <div class="actions">
-                                                    <button class="button btn-cart" type="button"><span><i
-                                                            class="fa fa-shopping-cart"></i> Add to Cart</span></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="item-inner">
-                                    <div class="item-img">
-                                        <div class="item-img-info"><a class="product-image"
-                                                                      title="Product tilte is here" href="#"> <img
-                                                alt="Product tilte is here" src="images/products/product-fashion-1.jpg">
-                                        </a>
-                                            <div class="mask-shop-white"></div>
-                                            <div class="new-label new-top-left">new</div>
-                                            <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>
-                                            <a href="wishlist.html">
-                                                <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
-                                            </a> <a href="compare.html">
-                                                <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
-                                            </a></div>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="info-inner">
-                                            <div class="item-title"><a title="Product tilte is here" href="#"> Product
-                                                tilte is here </a></div>
-                                            <div class="item-content">
-                                                <div class="rating"><i class="fa fa-star"></i> <i
-                                                        class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i
-                                                        class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>
-                                                <div class="item-price">
-                                                    <div class="price-box"><span class="regular-price"> <span
-                                                            class="price">$199.00</span></span></div>
-                                                </div>
-                                                <div class="actions">
-                                                    <button class="button btn-cart" type="button"><span><i
-                                                            class="fa fa-shopping-cart"></i> Add to Cart</span></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="item-inner">
-                                    <div class="item-img">
-                                        <div class="item-img-info"><a class="product-image"
-                                                                      title="Product tilte is here" href="#"> <img
-                                                alt="Product tilte is here" src="images/products/product-fashion-1.jpg">
-                                        </a>
-                                            <div class="mask-shop-white"></div>
-                                            <div class="new-label new-top-left">new</div>
-                                            <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>
-                                            <a href="wishlist.html">
-                                                <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
-                                            </a> <a href="compare.html">
-                                                <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
-                                            </a></div>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="info-inner">
-                                            <div class="item-title"><a title="Product tilte is here" href="#"> Product
-                                                tilte is here </a></div>
-                                            <div class="item-content">
-                                                <div class="rating"><i class="fa fa-star"></i> <i
-                                                        class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i
-                                                        class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>
-                                                <div class="item-price">
-                                                    <div class="price-box"><span class="regular-price"> <span
-                                                            class="price">$75.00</span></span></div>
-                                                </div>
-                                                <div class="actions">
-                                                    <button class="button btn-cart" type="button"><span><i
-                                                            class="fa fa-shopping-cart"></i> Add to Cart</span></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
+{#                            <div class="item">#}
+{#                                <div class="item-inner">#}
+{#                                    <div class="item-img">#}
+{#                                        <div class="item-img-info"><a class="product-image"#}
+{#                                                                      title="Product tilte is here" href="#"> <img#}
+{#                                                alt="Product tilte is here" src="images/products/product-fashion-1.jpg">#}
+{#                                        </a>#}
+{#                                            <div class="sale-label sale-top-right">Sale</div>#}
+{#                                            <div class="mask-shop-white"></div>#}
+{#                                            <div class="new-label new-top-left">new</div>#}
+{#                                            <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>#}
+{#                                            <a href="wishlist.html">#}
+{#                                                <div class="mask-left-shop"><i class="fa fa-heart"></i></div>#}
+{#                                            </a> <a href="compare.html">#}
+{#                                                <div class="mask-right-shop"><i class="fa fa-signal"></i></div>#}
+{#                                            </a></div>#}
+{#                                    </div>#}
+{#                                    <div class="item-info">#}
+{#                                        <div class="info-inner">#}
+{#                                            <div class="item-title"><a title="Product tilte is here" href="#"> Product#}
+{#                                                tilte is here </a></div>#}
+{#                                            <div class="item-content">#}
+{#                                                <div class="rating"><i class="fa fa-star"></i> <i#}
+{#                                                        class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i#}
+{#                                                        class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>#}
+{#                                                <div class="item-price">#}
+{#                                                    <div class="price-box"><span class="regular-price"> <span#}
+{#                                                            class="price">$99.00</span></span></div>#}
+{#                                                </div>#}
+{#                                                <div class="actions">#}
+{#                                                    <button class="button btn-cart" type="button"><span><i#}
+{#                                                            class="fa fa-shopping-cart"></i> Add to Cart</span></button>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="item">#}
+{#                                <div class="item-inner">#}
+{#                                    <div class="item-img">#}
+{#                                        <div class="item-img-info"><a class="product-image"#}
+{#                                                                      title="Product tilte is here" href="#"> <img#}
+{#                                                alt="Product tilte is here" src="images/products/product-fashion-1.jpg">#}
+{#                                        </a>#}
+{#                                            <div class="mask-shop-white"></div>#}
+{#                                            <div class="new-label new-top-left">new</div>#}
+{#                                            <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>#}
+{#                                            <a href="wishlist.html">#}
+{#                                                <div class="mask-left-shop"><i class="fa fa-heart"></i></div>#}
+{#                                            </a> <a href="compare.html">#}
+{#                                                <div class="mask-right-shop"><i class="fa fa-signal"></i></div>#}
+{#                                            </a></div>#}
+{#                                    </div>#}
+{#                                    <div class="item-info">#}
+{#                                        <div class="info-inner">#}
+{#                                            <div class="item-title"><a title="Product tilte is here" href="#"> Product#}
+{#                                                tilte is here </a></div>#}
+{#                                            <div class="item-content">#}
+{#                                                <div class="rating"><i class="fa fa-star"></i> <i#}
+{#                                                        class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i#}
+{#                                                        class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>#}
+{#                                                <div class="item-price">#}
+{#                                                    <div class="price-box"><span class="regular-price"> <span#}
+{#                                                            class="price">$79.90</span></span></div>#}
+{#                                                </div>#}
+{#                                                <div class="actions">#}
+{#                                                    <button class="button btn-cart" type="button"><span><i#}
+{#                                                            class="fa fa-shopping-cart"></i> Add to Cart</span></button>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="item">#}
+{#                                <div class="item-inner">#}
+{#                                    <div class="item-img">#}
+{#                                        <div class="item-img-info"><a class="product-image"#}
+{#                                                                      title="Product tilte is here" href="#"> <img#}
+{#                                                alt="Product tilte is here" src="images/products/product-fashion-1.jpg">#}
+{#                                        </a>#}
+{#                                            <div class="sale-label sale-top-left">Sale</div>#}
+{#                                            <div class="mask-shop-white"></div>#}
+{#                                            <div class="new-label new-top-left">new</div>#}
+{#                                            <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>#}
+{#                                            <a href="wishlist.html">#}
+{#                                                <div class="mask-left-shop"><i class="fa fa-heart"></i></div>#}
+{#                                            </a> <a href="compare.html">#}
+{#                                                <div class="mask-right-shop"><i class="fa fa-signal"></i></div>#}
+{#                                            </a></div>#}
+{#                                    </div>#}
+{#                                    <div class="item-info">#}
+{#                                        <div class="info-inner">#}
+{#                                            <div class="item-title"><a title="Product tilte is here" href="#"> Product#}
+{#                                                tilte is here </a></div>#}
+{#                                            <div class="item-content">#}
+{#                                                <div class="rating"><i class="fa fa-star"></i> <i#}
+{#                                                        class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i#}
+{#                                                        class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>#}
+{#                                                <div class="item-price">#}
+{#                                                    <div class="price-box"><span class="regular-price"> <span#}
+{#                                                            class="price">$49.00</span></span></div>#}
+{#                                                </div>#}
+{#                                                <div class="actions">#}
+{#                                                    <button class="button btn-cart" type="button"><span><i#}
+{#                                                            class="fa fa-shopping-cart"></i> Add to Cart</span></button>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="item">#}
+{#                                <div class="item-inner">#}
+{#                                    <div class="item-img">#}
+{#                                        <div class="item-img-info"><a class="product-image"#}
+{#                                                                      title="Product tilte is here" href="#"> <img#}
+{#                                                alt="Product tilte is here" src="images/products/product-fashion-1.jpg">#}
+{#                                        </a>#}
+{#                                            <div class="mask-shop-white"></div>#}
+{#                                            <div class="new-label new-top-left">new</div>#}
+{#                                            <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>#}
+{#                                            <a href="wishlist.html">#}
+{#                                                <div class="mask-left-shop"><i class="fa fa-heart"></i></div>#}
+{#                                            </a> <a href="compare.html">#}
+{#                                                <div class="mask-right-shop"><i class="fa fa-signal"></i></div>#}
+{#                                            </a></div>#}
+{#                                    </div>#}
+{#                                    <div class="item-info">#}
+{#                                        <div class="info-inner">#}
+{#                                            <div class="item-title"><a title="Product tilte is here" href="#"> Product#}
+{#                                                tilte is here </a></div>#}
+{#                                            <div class="item-content">#}
+{#                                                <div class="rating"><i class="fa fa-star"></i> <i#}
+{#                                                        class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i#}
+{#                                                        class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>#}
+{#                                                <div class="item-price">#}
+{#                                                    <div class="price-box"><span class="regular-price"> <span#}
+{#                                                            class="price">$97.00</span></span></div>#}
+{#                                                </div>#}
+{#                                                <div class="actions">#}
+{#                                                    <button class="button btn-cart" type="button"><span><i#}
+{#                                                            class="fa fa-shopping-cart"></i> Add to Cart</span></button>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="item">#}
+{#                                <div class="item-inner">#}
+{#                                    <div class="item-img">#}
+{#                                        <div class="item-img-info"><a class="product-image"#}
+{#                                                                      title="Product tilte is here" href="#"> <img#}
+{#                                                alt="Product tilte is here" src="images/products/product-fashion-1.jpg">#}
+{#                                        </a>#}
+{#                                            <div class="mask-shop-white"></div>#}
+{#                                            <div class="new-label new-top-left">new</div>#}
+{#                                            <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>#}
+{#                                            <a href="wishlist.html">#}
+{#                                                <div class="mask-left-shop"><i class="fa fa-heart"></i></div>#}
+{#                                            </a> <a href="compare.html">#}
+{#                                                <div class="mask-right-shop"><i class="fa fa-signal"></i></div>#}
+{#                                            </a></div>#}
+{#                                    </div>#}
+{#                                    <div class="item-info">#}
+{#                                        <div class="info-inner">#}
+{#                                            <div class="item-title"><a title="Product tilte is here" href="#"> Product#}
+{#                                                tilte is here </a></div>#}
+{#                                            <div class="item-content">#}
+{#                                                <div class="rating"><i class="fa fa-star"></i> <i#}
+{#                                                        class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i#}
+{#                                                        class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>#}
+{#                                                <div class="item-price">#}
+{#                                                    <div class="price-box"><span class="regular-price"> <span#}
+{#                                                            class="price">$199.00</span></span></div>#}
+{#                                                </div>#}
+{#                                                <div class="actions">#}
+{#                                                    <button class="button btn-cart" type="button"><span><i#}
+{#                                                            class="fa fa-shopping-cart"></i> Add to Cart</span></button>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="item">#}
+{#                                <div class="item-inner">#}
+{#                                    <div class="item-img">#}
+{#                                        <div class="item-img-info"><a class="product-image"#}
+{#                                                                      title="Product tilte is here" href="#"> <img#}
+{#                                                alt="Product tilte is here" src="images/products/product-fashion-1.jpg">#}
+{#                                        </a>#}
+{#                                            <div class="mask-shop-white"></div>#}
+{#                                            <div class="new-label new-top-left">new</div>#}
+{#                                            <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>#}
+{#                                            <a href="wishlist.html">#}
+{#                                                <div class="mask-left-shop"><i class="fa fa-heart"></i></div>#}
+{#                                            </a> <a href="compare.html">#}
+{#                                                <div class="mask-right-shop"><i class="fa fa-signal"></i></div>#}
+{#                                            </a></div>#}
+{#                                    </div>#}
+{#                                    <div class="item-info">#}
+{#                                        <div class="info-inner">#}
+{#                                            <div class="item-title"><a title="Product tilte is here" href="#"> Product#}
+{#                                                tilte is here </a></div>#}
+{#                                            <div class="item-content">#}
+{#                                                <div class="rating"><i class="fa fa-star"></i> <i#}
+{#                                                        class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i#}
+{#                                                        class="fa fa-star-o"></i> <i class="fa fa-star-o"></i></div>#}
+{#                                                <div class="item-price">#}
+{#                                                    <div class="price-box"><span class="regular-price"> <span#}
+{#                                                            class="price">$75.00</span></span></div>#}
+{#                                                </div>#}
+{#                                                <div class="actions">#}
+{#                                                    <button class="button btn-cart" type="button"><span><i#}
+{#                                                            class="fa fa-shopping-cart"></i> Add to Cart</span></button>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
                         </div>
                     </div>
                 </div>
