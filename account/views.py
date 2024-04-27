@@ -113,7 +113,6 @@ class PhoneRegister(View):
             cd = form.cleaned_data
             phone = cd.get('phone')
             token = str(uuid4())
-            print(code)
             # sms.verification({'receptor': cd.get('phone'), 'type': '1', 'template': '', 'param1': code})
             OTP.objects.create(phone=cd.get('phone'), varification_code=code, token=token)
             return redirect(reverse('account:verify') + f'?token={token}')

@@ -1,4 +1,5 @@
 ﻿{% extends 'Layout.html' %}
+{% load humanize %}
 {% load static %}
 {% block content %}
     <!-- Main Container -->
@@ -54,7 +55,7 @@
                                                                               href="product-detail.html">
                                                     {% if product.image %}
                                                     <img
-                                                        alt="Product tilte is here" src="{{ product.image.url }}">
+                                                        alt="Product tilte is here" style="width: 300px;height: 300px" src="{{ product.image.url }}">
                                                     {% else %}
                                                                                                             <img
                                                         alt="Product tilte is here" src="{% static 'empty.png' %}">
@@ -84,9 +85,9 @@
                                                         </div>
                                                         <div class="item-price">
                                                             <div class="price-box"><span class="regular-price"> <span
-                                                                    class="price">${{ product.price }}</span></span>
+                                                                    class="price">${{ product.off_price|intcomma:False }}</span></span>
                                                                 <p class="old-price"><span class="price-label">Regular Price:</span>
-                                                                    <span class="price"> $119.00 </span></p>
+                                                                    <span class="price"> {{ product.price|intcomma:False }} </span></p>
                                                             </div>
                                                         </div>
                                                         <div class="actions">

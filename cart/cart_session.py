@@ -17,17 +17,12 @@ class Cart:
     def __iter__(self):
         cart = self.cart.copy()
         for item in cart.values():
-            print(int(item['id']))
             item['product'] = Product.objects.get(id=int(item['id']))
-            print(item['product'])
             item['total'] = float(item['price']) * int(item['qty'])
-            print(item['total'])
             yield item
 
     def add(self, pk, qty):
         product = get_object_or_404(Product, id=pk)
-        print(product.id)
-
         if product.id not in self.cart:
             self.cart[product.id] = {'id': product.id, 'price': str(product.price), 'qty': 0}
         self.cart[product.id]['qty'] += int(qty)

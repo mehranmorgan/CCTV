@@ -5,7 +5,7 @@
             <div id="jtv-brand-logo-slider" class="product-flexslider hidden-buttons">
                 <div class="slider-items slider-width-col6">
                     {% for brand in brands %}
-                    <div class="item"><a href="{% url 'Home:shop_grid_cat' brand.title %}"><img src="{{ brand.image.url }}" alt="Brand Logo"></a>
+                    <div class="item"><a href="{% url 'Home:shop_grid_cat' brand.title %}"><img src="{{ brand.image.url }} " alt="Brand Logo" style="width: 150px;height: 100px" ></a>
                     </div>
                     {% endfor %}
             </div>
