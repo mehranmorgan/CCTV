@@ -6,5 +6,6 @@ app_name = 'Product'
 urlpatterns = [
     path('wish_list', views.UserWishList.as_view(), name='wish_list'),
     path('add_to_wish', views.AdToWish.as_view(), name='add_to_wish'),
+    path('deleteitem/<int:pk>', views.DeleteWishListItem.as_view(), name='delete_wish'),
 
 ]

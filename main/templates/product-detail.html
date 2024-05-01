@@ -125,7 +125,8 @@
                                         Add to Cart
                                     </button>
                                 </div>
-                                </form>
+                            </div>
+                            </form>
                         <form method="post" action="{% url 'Product:add_to_wish' %}">
                             {% csrf_token %}
                             <input type="hidden" value="{{ product.id }}" name="pk">

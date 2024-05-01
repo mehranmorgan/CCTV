@@ -152,3 +152,8 @@ class AddressCreation(View):
             address.user = request.user
             address.save()
             return redirect('cart:Order_create')
+
+
+class MyAccountView(View):
+    def get (self, request):
+        return render(request,'dashboard/dashboard.html')

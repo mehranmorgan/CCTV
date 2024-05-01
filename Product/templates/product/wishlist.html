@@ -16,8 +16,7 @@
                       <th class="product-thumbnail ">Image</th>
                       <th class="product-name ">Product Name</th>
                       <th class="product-price ">Unit Price</th>
-                      <th class="product-subtotal ">Stock</th>
-                      <th class="product-quantity">Add Item</th>
+                      <th class="product-quantity">Product Detail</th>
                       <th class="product-remove">Remove</th>
                     </tr>
                   </thead>
@@ -25,37 +24,12 @@
                     {% for obj in objs %}
                     <tr class="cart_item">
                       <td class="item-img"><a href="#"><img alt="Product tilte is here" src={{ obj.product.image.url }}> </a></td>
-                      <td class="item-title"><a href="#">{{ obj.product.name }} </a></td>
-                      <td class="item-price">{{ obj.product.off_price }} </td>
-                      <td class="item-qty"> In Stock </td>
-                      <td class="total-price"><a class="btn-def btn2" href="#">Add To Cart</a></td>
-                      <td class="remove-item"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                      <td class="item-title"><a href="{% url 'Home:product_detail' obj.product.slug %}">{{ obj.product.name }} </a></td>
+                      <td class="item-price">{{ obj.product.off_price |intcomma:False }} </td>
+                      <td class="total-price"><a class="btn-def btn2" href="{% url 'Home:product_detail' obj.product.slug %}">Product Detail</a></td>
+                      <td class="remove-item"><a href="{% url 'Product:delete_wish' obj.product.id %}"><i class="fa fa-trash-o"></i></a></td>
                     </tr>
                     {% endfor %}
-                    <tr class="cart_item">
-                      <td class="item-img"><a href="#"><img alt="Product tilte is here" src="images/products/product-fashion-1.jpg"> </a></td>
-                      <td class="item-title"><a href="#">Product tilte is here </a></td>
-                      <td class="item-price"> $119.00 </td>
-                      <td class="item-qty"> In Stock </td>
-                      <td class="total-price"><a class="btn-def btn2" href="#">Add To Cart</a></td>
-                      <td class="remove-item"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                    </tr>
-                    <tr class="cart_item">
-                      <td class="item-img"><a href="#"><img alt="Product tilte is here" src="images/products/product-fashion-1.jpg"> </a></td>
-                      <td class="item-title"><a href="#">Product tilte is here </a></td>
-                      <td class="item-price"> $99.00 </td>
-                      <td class="item-qty"> In Stock </td>
-                      <td class="total-price"><a class="btn-def btn2" href="#">Add To Cart</a></td>
-                      <td class="remove-item"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                    </tr>
-                    <tr class="cart_item">
-                      <td class="item-img"><a href="#"><img alt="Product tilte is here" src="images/products/product-fashion-1.jpg"> </a></td>
-                      <td class="item-title"><a href="#">Product tilte is here </a></td>
-                      <td class="item-price"> $79.00 </td>
-                      <td class="item-qty"> In Stock </td>
-                      <td class="total-price"><a class="btn-def btn2" href="#">Add To Cart</a></td>
-                      <td class="remove-item"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                    </tr>
                   </tbody>
                 </table>
               </div>

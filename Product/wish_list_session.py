@@ -14,9 +14,9 @@ class WishListSession:
         self.wish = wish
 
     def __iter__(self):
-        wish=self.wish.copy()
+        wish = self.wish.copy()
         for item in wish.values():
-            item['product']=Product.objects.get(id=int(item['id']))
+            item['product'] = Product.objects.get(id=int(item['id']))
             yield item
 
     def add(self, pk, qty):
@@ -29,7 +29,9 @@ class WishListSession:
     def save(self):
         self.session.modified = True
 
-    def delete(self,id):
-        if id in self.wish:
-            del self.wish[id]
+    def delete(self, pk):
+        print(self.wish[f'{pk}'])
+        if f'{pk}' in self.wish:
+            del self.wish[f'{pk}']
             self.save()
+

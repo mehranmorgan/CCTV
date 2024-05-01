@@ -12,5 +12,6 @@ urlpatterns = [
     path('pri_register', views.PhoneRegister.as_view(), name='pri_register'),
     path('verify', views.Verify.as_view(), name='verify'),
     path('AddressCheckout', views.AddressCreation.as_view(), name='addressckeckout'),
+    path('myaccount', views.MyAccountView.as_view(), name='my_account'),
 
 ]

@@ -19,7 +19,17 @@ class AdToWish(View):
     def post(self, request):
         wish = WishListSession(request)
         pk = request.POST.get('pk')
+        print(pk)
         qty = request.POST.get('qty')
+        print(qty)
         product = Product.objects.get(id=int(pk))
         wish.add(pk, qty)
         return redirect('Home:product_detail', product.slug)
+
+
+class DeleteWishListItem(View):
+    def get(self, request, pk):
+        wish = WishListSession(request)
+        wish.delete(pk)
+        wish.save()
+        return redirect('Product:wish_list')
