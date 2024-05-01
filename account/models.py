@@ -5,7 +5,6 @@ from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
 
-
 class ContactUS(models.Model):
     firstname = models.CharField(max_length=20)
     phone = models.CharField(max_length=13)
@@ -18,7 +17,7 @@ class ContactUS(models.Model):
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, phone, password=None):
+    def create_user(self, email, username,phone, password=None):
         """
         Creates and saves a User with the given email, date of
         birth and password.
@@ -29,13 +28,14 @@ class UserManager(BaseUserManager):
         user = self.model(
             email=self.normalize_email(email),
             phone=phone,
+            username=username,
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, phone, password=None):
+    def create_superuser(self, email,username, phone, password=None):
         """
         Creates and saves a superuser with the given email, date of
         birth and password.
@@ -44,6 +44,7 @@ class UserManager(BaseUserManager):
             email,
             password=password,
             phone=phone,
+            username=username,
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -59,11 +60,11 @@ class User(AbstractBaseUser):
     phone = models.CharField(max_length=11)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-
+    username = models.CharField(max_length=20)
     objects = UserManager()
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["phone"]
+    REQUIRED_FIELDS = ["phone",'username']
 
     def __str__(self):
         return self.email
@@ -105,5 +106,3 @@ class Address(models.Model):
 
     def __str__(self):
         return self.user.phone
-
-

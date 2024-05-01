@@ -13,16 +13,16 @@
                 <h2>My Dashboard</h2>
               </div>
               <div class="dashboard">
-                <div class="welcome-msg"> <strong>Hello, Vince Roy!</strong>
+                <div class="welcome-msg"> <strong>Hello, {{ user.username }}</strong>
                   <p>From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.</p>
                 </div>
                 <div class="recent-orders">
-                  <div class="title-buttons"><strong>Recent Orders</strong> <a href="#">View All </a> </div>
+                  <div class="title-buttons"><strong>Recent Orders</strong>
                   <div class="table-responsive">
                     <table class="data-table" id="my-orders-table">
                       <thead>
                         <tr class="first last">
-                          <th>Order #</th>
+                          <th>Order code</th>
                           <th>Date</th>
                           <th>Ship to</th>
                           <th><span class="nobr">Order Total</span></th>
@@ -31,22 +31,28 @@
                         </tr>
                       </thead>
                       <tbody>
+                      {% for order in orders %}
                         <tr class="first odd">
-                          <td>123456</td>
-                          <td>01/02/18 </td>
+                          <td>{{ order.id }}</td>
+                          <td>{{ order.created_at }} </td>
                           <td>Vince Roy</td>
-                          <td><span class="price">$49.00</span></td>
-                          <td><em>Pending</em></td>
+                          <td><span class="price">{{ order.total |intcomma:False }}</span></td>
+                            {% if order.is_paid == False %}
+                          <td><em>not paid</em></td>
+                            {% elif order.is_paid == True %}
+                            <td><em>paid</em></td>
+                            {% endif %}
                           <td class="a-center last"><span class="nobr"> <a href="#">View Order</a> <span class="separator">|</span><a href="#">Reorder</a> </span></td>
                         </tr>
-                        <tr class="last even">
-                          <td>987654</td>
-                          <td>06/03/18 </td>
-                          <td>Vince Roy</td>
-                          <td><span class="price">$99.99</span></td>
-                          <td><em>Pending</em></td>
-                          <td class="a-center last"><span class="nobr"> <a href="#">View Order</a> <span class="separator">|</span><a href="#">Reorder</a> </span></td>
-                        </tr>
+                      {% endfor %}
+{#                        <tr class="last even">#}
+{#                          <td>987654</td>#}
+{#                          <td>06/03/18 </td>#}
+{#                          <td>Vince Roy</td>#}
+{#                          <td><span class="price">$99.99</span></td>#}
+{#                          <td><em>Pending</em></td>#}
+{#                          <td class="a-center last"><span class="nobr"> <a href="#">View Order</a> <span class="separator">|</span><a href="#">Reorder</a> </span></td>#}
+{#                        </tr>#}
                       </tbody>
                     </table>
                   </div>
@@ -58,43 +64,39 @@
                   <div class="col2-set">
                     <div class="col-1">
                       <h5>Contact Information</h5>
-                      <a href="#">Edit</a>
-                      <p> Vince Roy<br>
-                        support@example.com<br>
-                        <a href="#">Change Password</a> </p>
-                    </div>
-                    <div class="col-2">
-                      <h5>Newsletters</h5>
-                      <a href="#">Edit</a>
-                      <p> You are currently not subscribed to any newsletter. </p>
-                    </div>
-                  </div>
+                      <p> phone number:{{ user.phone }}<br>
+                        Email:{{ user.email }}<br>
+                         </p>
+{#                    </div>#}
+{#                    <div class="col-2">#}
+{#                      <h5>Newsletters</h5>#}
+{#                      <a href="#">Edit</a>#}
+{#                      <p> You are currently not subscribed to any newsletter. </p>#}
+{#                    </div>#}
+{#                  </div>#}
+
                   <div class="col2-set">
-                    <h4>Address Book</h4>
-                    <div class="manage_add"><a href="#">Manage Addresses</a> </div>
-                    <div class="col-1">
-                      <h5>Primary Billing Address</h5>
-                      <address>
-                      Vince Roy<br>
-                      Company, <br>
-                      12/34 - West 21st Street,<br>
-                      New York,<br>
-                      USA<br>
-                      T: 564235 <br>
-                      <a href="#">Edit Address</a>
-                      </address>
+{#                    <h4>Address Book</h4>#}
+{#                    <div class="manage_add"><a href="#">Manage Addresses</a> </div>#}
+{#                    <div class="col-1">#}
+{#                      <h5>Primary Billing Address</h5>#}
+{#                      <address>#}
+{#                      {{ user.address.last.phone}}<br>#}
+{#                      {{ user.address.last.address }}<br>#}
+{#                      <a href="#">Edit Address</a>#}
+{#                      </address>#}
                     </div>
                     <div class="col-2">
-                      <h5>Primary Shipping Address</h5>
-                      <address>
-                      Vince Roy<br>
-                      Company, <br>
-                      12/34 - West 21st Street,<br>
-                      New York,<br>
-                      USA<br>
-                      T: 564235 <br>
-                      <a href="#">Edit Address</a>
-                      </address>
+{#                      <h5>Primary Shipping Address</h5>#}
+{#                      <address>#}
+{#                      Vince Roy<br>#}
+{#                      Company, <br>#}
+{#                      12/34 - West 21st Street,<br>#}
+{#                      New York,<br>#}
+{#                      USA<br>#}
+{#                      T: 564235 <br>#}
+{#                      <a href="#">Edit Address</a>#}
+{#                      </address>#}
                     </div>
                   </div>
                 </div>
@@ -107,17 +109,17 @@
             <div class="block-title">My Account</div>
             <div class="block-content">
               <ul>
-                <li class="current"><a href="dashboard.html"><i class="fa fa-angle-right"></i> Account Dashboard</a></li>
-                <li><a href="my-account-information.html"><i class="fa fa-angle-right"></i> Account Information</a></li>
+{#                <li class="current"><a href="dashboard.html"><i class="fa fa-angle-right"></i> Account Dashboard</a></li>#}
+                <li><a href="{% url 'account:my_information' %}"><i class="fa fa-angle-right"></i> Account Information</a></li>
                 <li><a href="my-address.html"><i class="fa fa-angle-right"></i> Address Book</a></li>
-                <li><a href="my-order.html"><i class="fa fa-angle-right"></i> My Orders</a></li>
-                <li><a href="#"><i class="fa fa-angle-right"></i> Billing Agreements</a></li>
-                <li><a href="#"><i class="fa fa-angle-right"></i> Recurring Profiles</a></li>
-                <li><a href="#"><i class="fa fa-angle-right"></i> My Product Reviews</a></li>
-                <li><a href="#"><i class="fa fa-angle-right"></i> My Tags</a></li>
-                <li><a href="wishlist.html"><i class="fa fa-angle-right"></i> My Wishlist</a></li>
-                <li><a href="#"><i class="fa fa-angle-right"></i> My Downloadable</a></li>
-                <li><a href="#"><i class="fa fa-angle-right"></i> Newsletter Subscriptions</a></li>
+{#                <li><a href="my-order.html"><i class="fa fa-angle-right"></i> My Orders</a></li>#}
+{#                <li><a href="#"><i class="fa fa-angle-right"></i> Billing Agreements</a></li>#}
+{#                <li><a href="#"><i class="fa fa-angle-right"></i> Recurring Profiles</a></li>#}
+{#                <li><a href="#"><i class="fa fa-angle-right"></i> My Product Reviews</a></li>#}
+{#                <li><a href="#"><i class="fa fa-angle-right"></i> My Tags</a></li>#}
+                <li><a href="{% url 'Product:wish_list' %}"><i class="fa fa-angle-right"></i> My Wishlist</a></li>
+{#                <li><a href="#"><i class="fa fa-angle-right"></i> My Downloadable</a></li>#}
+{#                <li><a href="#"><i class="fa fa-angle-right"></i> Newsletter Subscriptions</a></li>#}
               </ul>
             </div>
           </div>

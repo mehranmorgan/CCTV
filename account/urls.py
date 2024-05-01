@@ -13,5 +13,7 @@ urlpatterns = [
     path('verify', views.Verify.as_view(), name='verify'),
     path('AddressCheckout', views.AddressCreation.as_view(), name='addressckeckout'),
     path('myaccount', views.MyAccountView.as_view(), name='my_account'),
+    path('myinformaion', views.MyInformationView.as_view(), name='my_information'),
+    path('change_password', views.ChangePasswordView.as_view(), name='Change_password'),
 
 ]

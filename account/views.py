@@ -1,5 +1,8 @@
+from django.db.models import Q
 from django.views.generic import CreateView
-from .models import ContactUS, UserManager
+
+from cart.models import Order
+from .models import ContactUS, UserManager, User
 from django.contrib.auth import logout, get_user_model
 from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
@@ -29,7 +32,6 @@ from django.utils import timezone
 def userlogout(request):
     logout(request)
     return render(request, 'index.html')
-
 
 
 # class UserRegister(CreateView):
@@ -92,7 +94,7 @@ class RegisterUser(View):
             new_user = UserManager.create_user(email=cd['email'], phone=cd['phone'],
                                                password=cd['password1'], )
             if new_user:
-                login(request, new_user)
+                # login(request, new_user)
                 return redirect('Home:home')
             else:
                 form.add_error(None, 'information not correct')
@@ -110,6 +112,7 @@ class PhoneRegister(View):
         form = PhoneRegisterForm(request.POST)
         if form.is_valid():
             code = randint(1000, 9999)
+            print(code)
             cd = form.cleaned_data
             phone = cd.get('phone')
             token = str(uuid4())
@@ -155,5 +158,43 @@ class AddressCreation(View):
 
 
 class MyAccountView(View):
-    def get (self, request):
-        return render(request,'dashboard/dashboard.html')
+    def get(self, request):
+        user = request.user
+        orders = Order.objects.filter(Q(user=request.user))
+        return render(request, 'dashboard/dashboard.html', {'orders': orders, 'user': user})
+
+
+class MyInformationView(View):
+    def get(self, request):
+        user = request.user
+        return render(request, 'dashboard/my-account-information.html', {'user': user})
+
+    def post(self, request):
+        user = request.user
+        username = request.POST.get('username')
+        if username:
+            user.username = username
+            user.save()
+        email = request.POST['email']
+        if email:
+            user.email = email
+            user.save()
+        phone = request.POST.get('phone')
+        if phone:
+            user.phone = phone
+            user.save()
+        return redirect('account:my_information')
+
+
+class ChangePasswordView(View):
+    def post(self, request):
+        user = request.user
+        cpass = request.POST.get('cpass')
+        npass = request.POST.get('npass')
+        cnpass = request.POST.get('cnpass')
+        print(cpass, npass, cnpass)
+        if user.check_password(cpass):
+            if npass == cnpass:
+                user.set_password(npass)
+                user.save()
+        return redirect('account:my_information')

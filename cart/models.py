@@ -7,7 +7,7 @@ from account.models import User
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='order')
-    is_paid = models.BooleanField(null=True,blank=True)
+    is_paid = models.BooleanField(null=True,blank=True,default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     total=models.PositiveSmallIntegerField(default=0)
 
