@@ -21,8 +21,9 @@ from django.urls import path, include
 from MyStore_project import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('main.urls')),
-    path('accounts/',include('account.urls')),
-    path('cart/',include('cart.urls'))
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('admin/', admin.site.urls),
+                  path('', include('main.urls')),
+                  path('accounts/', include('account.urls')),
+                  path('cart/', include('cart.urls')),
+                  path('product/', include('Product.urls')),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

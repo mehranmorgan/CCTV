@@ -55,7 +55,7 @@
                                                             <ul class="nav">
                                                                 <li><a href="checkout.html"><span>Checkout</span></a>
                                                                 </li>
-                                                                <li><a href="wishlist.html"><span>Wishlist</span></a>
+                                                                <li><a href="{% url 'Product:wish_list' %}"><span>Wishlist</span></a>
                                                                 </li>
                                                                 <li><a href="dashboard.html"><span>Dashboard</span></a>
                                                                 </li>
@@ -252,7 +252,7 @@
 
                                 <ul class="links">
                                     <li><a title="My Account" href="my-account.html">My Account</a></li>
-                                    <li><a title="My Wishlist" href="wishlist.html">Wishlist</a></li>
+                                    <li><a title="My Wishlist" href="{% url 'Product:wish_list' %}">Wishlist</a></li>
                                     <li><a title="Checkout" href="{% url 'account:addressckeckout' %}">Checkout</a></li>
                                     <li><a title="Track Order" href="track-order.html">Track Order</a></li>
                                     {% if user.is_authenticated %}

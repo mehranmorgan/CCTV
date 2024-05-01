@@ -126,6 +126,12 @@
                                     </button>
                                 </div>
                                 </form>
+                        <form method="post" action="{% url 'Product:add_to_wish' %}">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ product.id }}" name="pk">
+                            <input type="hidden" value="1" name="qty">
+                            <button type="submit" class="btn btn-danger">wish</button>
+                        </form>
                                 <div class="email-addto-box">
                                     <ul class="add-to-links">
                                         {% if is_like %}

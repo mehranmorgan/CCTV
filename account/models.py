@@ -4,6 +4,8 @@ from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
+
+
 class ContactUS(models.Model):
     firstname = models.CharField(max_length=20)
     phone = models.CharField(max_length=13)
@@ -11,14 +13,12 @@ class ContactUS(models.Model):
     address = models.CharField(max_length=150)
     comment = models.TextField()
 
-
     def __str__(self):
         return f'{self.firstname},{self.comment}'
 
 
-
 class UserManager(BaseUserManager):
-    def create_user(self, email,phone, password=None):
+    def create_user(self, email, phone, password=None):
         """
         Creates and saves a User with the given email, date of
         birth and password.
@@ -34,6 +34,7 @@ class UserManager(BaseUserManager):
         user.set_password(password)
         user.save(using=self._db)
         return user
+
     def create_superuser(self, email, phone, password=None):
         """
         Creates and saves a superuser with the given email, date of
@@ -85,7 +86,7 @@ class User(AbstractBaseUser):
 
 
 class OTP(models.Model):
-    token= models.CharField(max_length=200,null=True)
+    token = models.CharField(max_length=200, null=True)
     phone = models.CharField(max_length=11)
     varification_code = models.PositiveSmallIntegerField()
     expration_data = models.DateTimeField(auto_now_add=True)
@@ -94,14 +95,15 @@ class OTP(models.Model):
         return self.phone
 
 
-
 class Address(models.Model):
-    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='address')
-    fullname=models.CharField(max_length=30)
-    email=models.EmailField()
-    phone=models.CharField(max_length=12)
-    address=models.CharField(max_length=300)
-    postal_code=models.CharField(max_length=10)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='address')
+    fullname = models.CharField(max_length=30)
+    email = models.EmailField()
+    phone = models.CharField(max_length=12)
+    address = models.CharField(max_length=300)
+    postal_code = models.CharField(max_length=10)
 
     def __str__(self):
         return self.user.phone
+
+

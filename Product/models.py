@@ -81,3 +81,10 @@ class ComericalSlider(models.Model):
 
     def __str__(self):
         return self.name.cat
+
+
+class WishList(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='wish_list')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,related_name='wish_product')
+    def __str__(self):
+        return f'{self.user},{self.product}'
